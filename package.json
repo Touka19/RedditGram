@@ -1,0 +1,29 @@
+{
+  "name": "redditgram",
+  "version": "0.0.1",
+  "description": "Send posts from reddit into a Telegram channel!",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhiljha/RedditGram.git"
+  },
+  "keywords": [
+    "reddit",
+    "telegram"
+  ],
+  "author": "Nikhil Jha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikhiljha/RedditGram/issues"
+  },
+  "homepage": "https://github.com/nikhiljha/RedditGram#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "feedparser": "^1.1.4",
+    "node-telegram-bot-api": "^0.20.1",
+    "request": "^2.69.0"
+  }
+}
