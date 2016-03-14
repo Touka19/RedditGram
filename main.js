@@ -31,7 +31,7 @@ cli
 
   var resp = 'ERROR'
 
-  var bot = new TelegramBot('-' + cli.token, {polling: false});
+  var bot = new TelegramBot(cli.token, {polling: false});
 
   var minutes = 15, the_interval = minutes * 60 * 1000;
 
