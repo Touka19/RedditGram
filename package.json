@@ -1,7 +1,7 @@
 {
   "name": "redditgram",
-  "version": "0.1.0",
-  "description": "Send posts from Reddit/an RSS feed into a Telegram channel!",
+  "version": "0.0.1",
+  "description": "Send posts from reddit into a Telegram channel!",
   "main": "main.js",
   "scripts": {
     "test": "node main.js --debug"
