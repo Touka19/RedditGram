@@ -5,8 +5,10 @@ var TelegramBot = require('node-telegram-bot-api');
 
 cli
   .version('0.0.1')
-  .option('-t, --token [token]', 'Add peppers')
+  .option('-t, --token [token]', 'Specify a telegram token')
   .option('-d, --debug', 'To test out the program.')
+  .option('-f, --feed [feed]', 'Specify a feed')
+  .option('-c, --chat [chat]', 'Specify a chat ID')
   .parse(process.argv);
 
   if (cli.debug) {
@@ -14,10 +16,10 @@ cli
     process.exit(0);
   }
 
-  if (cli.token) {
+  if (cli.token && cli.chat && cli.feed) {
     // We are all good!
   } else {
-    console.log('Hey! You need to specify a token for the Telegram Bot to run on!');
+    console.log('Hey! You need to specify a token, feed, and chat ID for the Telegram Bot to run on!');
     process.exit(1);
   }
 
@@ -35,7 +37,7 @@ cli
 
   setInterval(function() {
     console.log("Checking reddit for new posts...");
-    fetch.obtain('https://zapier.com/engine/rss/999118/funnyreddit/')
+    fetch.obtain(cli.feed)
       .then(function(data) {
         var parsed = JSON.parse(data)
         resp = parsed['title'] + ' ' + parsed['url']
@@ -43,7 +45,7 @@ cli
           // Do nothing!
         } else {
           console.log('Found something new!');
-          bot.sendMessage('-1001044264759', parsed['title'] + ' ' + parsed['url']);
+          bot.sendMessage(cli.chat, parsed['title'] + ' ' + parsed['url']);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
