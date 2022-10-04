@@ -36,11 +36,11 @@ bot.on('message', (msg) => {
   bot.sendMessage(chatId, 'Received your message');
 });
 
-  var minutes = 15, the_interval = minutes * 60 * 1000;
+  var minutes = 1, the_interval = minutes * 60 * 1000;
 
   setInterval(function() {
     console.log("Checking reddit for new posts...");
-    fetch.obtain('https://zapier.com/engine/rss/999118/funnyreddit/')
+    fetch.obtain('https://reddit.0qz.fun/r/android.json')
       .then(function(data) {
         var parsed = JSON.parse(data)
         resp = parsed['title'] + ' ' + parsed['url']
