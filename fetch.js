@@ -31,7 +31,6 @@ module.exports = {
             , item;
 
            while (item = stream.read()) {
-              console.log(item);
               resolve(JSON.stringify({"title": item.title, "url":item.link, "guid":item.guid}));
           }
         });
