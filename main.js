@@ -3,6 +3,7 @@ var fs = require('fs');
 var TelegramBot = require('node-telegram-bot-api');
 
 const token = process.env.TOKEN
+const feedurl = process.env.URL
   var uuid = 'troll';
 
   fs.readFile('guid','utf8',function(err,buff){
@@ -40,7 +41,7 @@ bot.on('message', (msg) => {
 
   setInterval(function() {
     console.log("Checking reddit for new posts...");
-    fetch.obtain('https://reddit.0qz.fun/r/android.json')
+    fetch.obtain(feedurl)
       .then(function(data) {
         var parsed = JSON.parse(data)
         resp = parsed['title'] + ' ' + parsed['url']
