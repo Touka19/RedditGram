@@ -1,26 +1,8 @@
-var cli = require('commander');
 var fetch = require('./fetch.js');
 var fs = require('fs');
 var TelegramBot = require('node-telegram-bot-api');
 
-cli
-  .version('0.0.1')
-  .option('-t, --token [token]', 'Add peppers')
-  .option('-d, --debug', 'To test out the program.')
-  .parse(process.argv);
-
-  if (cli.debug) {
-    console.log('Test Successful!')
-    process.exit(0);
-  }
-
-  if (cli.token) {
-    // We are all good!
-  } else {
-    console.log('Hey! You need to specify a token for the Telegram Bot to run on!');
-    process.exit(1);
-  }
-
+const token = process.env.TOKEN
   var uuid = 'troll';
 
   fs.readFile('guid','utf8',function(err,buff){
@@ -29,9 +11,32 @@ cli
 
   var resp = 'ERROR'
 
-  var bot = new TelegramBot(cli.token, {polling: false});
+  const bot = new TelegramBot(token, {polling: false});
+  //const bot = new TelegramBot(token, {polling: true});
 
-  var minutes = 15, the_interval = minutes * 60 * 1000;
+// Matches "/echo [whatever]"
+bot.onText(/\/echo (.+)/, (msg, match) => {
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
+
+  const chatId = msg.chat.id;
+  const resp = match[1]; // the captured "whatever"
+
+  // send back the matched "whatever" to the chat
+  bot.sendMessage(chatId, resp);
+});
+
+// Listen for any kind of message. There are different kinds of
+// messages.
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+
+  // send a message to the chat acknowledging receipt of their message
+  bot.sendMessage(chatId, 'Received your message');
+});
+
+  /*var minutes = 15, the_interval = minutes * 60 * 1000;
 
   setInterval(function() {
     console.log("Checking reddit for new posts...");
@@ -52,4 +57,4 @@ cli
       .catch(function(error) {
         console.log('Error! ', error);
       });
-  }, the_interval);
+  }, the_interval);*/
