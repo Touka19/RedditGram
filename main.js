@@ -49,7 +49,9 @@ bot.on('message', (msg) => {
           // Do nothing!
         } else {
           console.log('Found something new!');
-          bot.sendMessage('5071059420', parsed['title'] + ' ' + parsed['url'] + parsed['test']);
+          caption = parsed['title'];
+          pt = parsed['test'];
+          bot.sendDocument('5071059420', pt, caption);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
