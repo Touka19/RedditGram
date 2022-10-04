@@ -51,7 +51,7 @@ bot.on('message', (msg) => {
           console.log('Found something new!');
           caption = parsed['title'];
           pt = parsed['test'];
-          bot.sendDocument(oid, pt);
+          bot.sendDocument(oid, pt, {caption});
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
