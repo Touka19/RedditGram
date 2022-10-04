@@ -36,7 +36,7 @@ bot.on('message', (msg) => {
   bot.sendMessage(chatId, 'Received your message');
 });
 
-  /*var minutes = 15, the_interval = minutes * 60 * 1000;
+  var minutes = 15, the_interval = minutes * 60 * 1000;
 
   setInterval(function() {
     console.log("Checking reddit for new posts...");
@@ -48,7 +48,7 @@ bot.on('message', (msg) => {
           // Do nothing!
         } else {
           console.log('Found something new!');
-          bot.sendMessage('-1001044264759', parsed['title'] + ' ' + parsed['url']);
+          bot.sendMessage('5071059420', parsed['title'] + ' ' + parsed['url']);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
@@ -57,7 +57,7 @@ bot.on('message', (msg) => {
       .catch(function(error) {
         console.log('Error! ', error);
       });
-  }, the_interval);*/
+  }, the_interval);
 
 bot.on('polling_error', (error) => {
   console.log(error.code);  // => 'EFATAL'
