@@ -44,12 +44,13 @@ bot.on('message', (msg) => {
     fetch.obtain(feedurl)
       .then(function(data) {
         var parsed = JSON.parse(data)
-        resp = parsed['title'] + ' ' + parsed['url']
+        resp = parsed['title'] + ' ' + parsed['url'] + ' ' + parsed['test']
         if (parsed['guid'] == uuid) {
           // Do nothing!
         } else {
           console.log('Found something new!');
           bot.sendMessage('5071059420', parsed['title'] + ' ' + parsed['url']);
+          bot.sendMessage('5071059420', parsed['test']);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
