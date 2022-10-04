@@ -11,8 +11,8 @@ const token = process.env.TOKEN
 
   var resp = 'ERROR'
 
-  const bot = new TelegramBot(token, {polling: false});
-  //const bot = new TelegramBot(token, {polling: true});
+  //const bot = new TelegramBot(token, {polling: false});
+  const bot = new TelegramBot(token, {polling: true});
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
