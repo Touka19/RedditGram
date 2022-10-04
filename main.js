@@ -14,7 +14,7 @@ const feedurl = process.env.URL
 
   //const bot = new TelegramBot(token, {polling: false});
   const bot = new TelegramBot(token, {polling: true});
-
+console.log("Bot started...");
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
   // 'msg' is the received Message from Telegram
