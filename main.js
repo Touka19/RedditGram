@@ -50,7 +50,6 @@ bot.on('message', (msg) => {
         } else {
           console.log('Found something new!');
           bot.sendMessage('5071059420', parsed['title'] + ' ' + parsed['url']);
-          bot.sendMessage('5071059420', parsed['test']);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
