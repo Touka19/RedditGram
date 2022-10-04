@@ -58,3 +58,11 @@ bot.on('message', (msg) => {
         console.log('Error! ', error);
       });
   }, the_interval);*/
+
+bot.on('polling_error', (error) => {
+  console.log(error.code);  // => 'EFATAL'
+});
+
+bot.on('webhook_error', (error) => {
+  console.log(error.code);  // => 'EPARSE'
+});
