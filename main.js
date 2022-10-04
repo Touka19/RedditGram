@@ -1,7 +1,7 @@
 var fetch = require('./fetch.js');
 var fs = require('fs');
 var TelegramBot = require('node-telegram-bot-api');
-
+const oid = process.env.OWID
 const token = process.env.TOKEN
 const feedurl = process.env.URL
   var uuid = 'troll';
@@ -51,7 +51,7 @@ bot.on('message', (msg) => {
           console.log('Found something new!');
           caption = parsed['title'];
           pt = parsed['test'];
-          bot.sendDocument('5071059420', pt, caption);
+          bot.sendDocument(oid, pt);
           uuid = parsed['guid'];
           fs.writeFile('guid',uuid,function(){})
         }
