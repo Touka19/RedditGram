@@ -44,7 +44,7 @@ bot.on('message', (msg) => {
     fetch.obtain(feedurl)
       .then(function(data) {
         var parsed = JSON.parse(data)
-        resp = parsed['title'] + ' ' + parsed['url'] + ' ' + parsed['test'] + parsed['test']
+        resp = parsed['title'] + ' ' + parsed['url'] + ' ' + parsed['test']
         if (parsed['guid'] == uuid) {
           // Do nothing!
         } else {
