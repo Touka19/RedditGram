@@ -4,7 +4,7 @@
   "description": "Send posts from reddit into a Telegram channel!",
   "main": "main.js",
   "scripts": {
-    "test": "node main.js --debug"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "commander": "^9.4.1",
