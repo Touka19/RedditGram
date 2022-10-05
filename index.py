@@ -6,7 +6,7 @@ API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-
+app = Flask(__name__)
 bot = TelegramClient('ISTHIS', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
 
 @bot.on(events.NewMessage(pattern='/start'))
