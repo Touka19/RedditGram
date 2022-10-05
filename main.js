@@ -2,6 +2,7 @@ var fetch = require('./fetch.js');
 var fs = require('fs');
 var TelegramBot = require('node-telegram-bot-api');
 var mime = require('mime-types')
+const Mimetypes = ['image/gif', 'image/png', 'image/jpg', 'video/mp4']
 const oid = process.env.OWID
 const token = process.env.TOKEN
 const feedurl = process.env.URL
