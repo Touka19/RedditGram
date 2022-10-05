@@ -58,12 +58,12 @@ setInterval(function() {
 		.then(function(data) {
 			var parsed = JSON.parse(data)
 			resp = parsed['title'] + ' ' + parsed['url'] + ' ' + parsed['test']
-                        pt = parsed['test'];
-                        getMIMEType(pt);
+			pt = parsed['test'];
+			MT = getMIMEType(pt);
 			if (parsed['guid'] == uuid) {
 				// Do nothing!
-			} else if(Mimetypes.includes(pt)) {
-                                console.log('mimetypes test');
+			} else if (Mimetypes.includes(MT)) {
+				console.log('mimetypes test');
 			} else {
 				console.log('Found something new!');
 				caption = parsed['title'];
