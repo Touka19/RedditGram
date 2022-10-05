@@ -2,6 +2,7 @@ var fetch = require('./fetch.js');
 var fs = require('fs');
 var TelegramBot = require('node-telegram-bot-api');
 const mime = require('node-mime-types');
+const dl = require('./dl.js');
 
 // mime is an object of functions
 const {
@@ -67,6 +68,8 @@ setInterval(function() {
 			} else {
 				console.log('Found something new!');
 				caption = parsed['title'];
+                                ET = getExtension(pt);
+				console.log(ET);
 				bot.sendDocument(oid, pt, {
 					caption
 				});
